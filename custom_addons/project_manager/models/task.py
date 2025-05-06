@@ -21,5 +21,6 @@ class Task(models.Model):
     )
 
     def _expand_states(self, states, domain, order):
+        """Returning the correct exposition of Kanban"""
         return ['created', 'in_progress', 'done']
 

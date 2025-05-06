@@ -11,6 +11,7 @@ class TaskFilterWizard(models.TransientModel):
     date_to = fields.Date(string='End Date')
 
     def action_filter_tasks(self):
+        """Filter tasks"""
         domain = []
 
         if self.project_id:
