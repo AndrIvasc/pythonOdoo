@@ -13,6 +13,7 @@
         'views/project_views.xml',
         'views/task_views.xml',
         'report/task_report.xml',
+        'security/project_manager_rules.xml',
     ],
     'application': True,
 }

@@ -1,0 +1,17 @@
+<odoo>
+  <!-- Record Rule for Regular Users: Tasks -->
+  <record id="task_user_rule" model="ir.rule">
+    <field name="name">User: Own Tasks Only</field>
+    <field name="model_id" ref="model_project_manager_task"/>
+    <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    <field name="domain_force">[('assigned_employee_ids', 'in', [user.id])]</field>
+  </record>
+
+  <!-- Record Rule for Regular Users: Projects -->
+  <record id="project_user_rule" model="ir.rule">
+    <field name="name">User: Own Projects Only</field>
+    <field name="model_id" ref="model_project_manager_project"/>
+    <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    <field name="domain_force">[('task_ids.assigned_employee_ids', 'in', [user.id])]</field>
+  </record>
+</odoo>
