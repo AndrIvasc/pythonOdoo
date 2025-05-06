@@ -1,0 +1,48 @@
+<odoo>
+    <template id="report_task_document">
+        <t t-call="web.external_layout">
+            <main class="page">
+                <h2>Task Report</h2>
+                <table class="table table-sm table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Status</th>
+                            <th>Assigned Employees</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="docs" t-as="task">
+                            <tr>
+                                <td>
+                                    <t t-esc="task.name"/>
+                                </td>
+                                <td>
+                                    <t t-esc="dict(task._fields['state'].selection).get(task.state)"/>
+                                </td>
+                                <td>
+                                    <t t-set="names" t-value="[]"/>
+                                    <t t-foreach="task.assigned_employee_ids" t-as="user">
+                                        <t t-set="names" t-value="names + [user.name]"/>
+                                    </t>
+                                    <t t-esc="' ,'.join(names)"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </main>
+        </t>
+    </template>
+
+    <report
+        id="action_print_all_tasks"
+        model="project.manager.task"
+        string="Print All Tasks"
+        report_type="qweb-pdf"
+        name="project_manager.report_task_document"
+        file="project_manager.report_task_document"
+        print_report_name="'Task_Report_All'"
+    />
+
+</odoo>

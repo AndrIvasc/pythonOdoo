@@ -12,6 +12,7 @@
         'security/ir.model.access.csv',
         'views/project_views.xml',
         'views/task_views.xml',
+        'report/task_report.xml',
     ],
     'application': True,
 }

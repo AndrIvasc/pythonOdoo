@@ -22,3 +22,4 @@ class Task(models.Model):
 
     def _expand_states(self, states, domain, order):
         return ['created', 'in_progress', 'done']
+
