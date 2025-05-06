@@ -1,0 +1,46 @@
+# Ignore Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Byte-compiled / optimized / DLL files
+*.so
+*.dll
+*.dylib
+*.pyd
+
+# Ignore virtual environments
+.venv/
+env/
+venv/
+ENV/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore compiled assets (if any)
+*.log
+*.pot
+*.mo
+
+# Ignore IDE/workspace files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore Python egg files
+*.egg-info/
+.eggs/
+
+# Odoo-specific: Don't push Odoo's core code if you're just using it locally
+/odoo/
+
+# Pip install artifacts
+pip-wheel-metadata/
+*.egg
+
+# Ignore editor temp files
+*~
+
