@@ -1,2 +1,1 @@
-from . import project
-from . import task
+from . import project, task, task_filter_wizard

@@ -36,7 +36,6 @@
         <field name="model">project.manager.task</field>
         <field name="arch" type="xml">
             <kanban default_group_by="state">
-                <field name="state"/>
                 <templates>
                     <t t-name="kanban-box">
                         <div class="oe_kanban_global_click">
@@ -58,4 +57,33 @@
 
     <menuitem id="menu_task_manager_tasks" name="All Tasks"
               parent="project_manager_menu" action="action_task_manager"/>
+
+    <record id="view_task_filter_wizard" model="ir.ui.view">
+        <field name="name">task.filter.wizard.form</field>
+        <field name="model">task.filter.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Filter Tasks">
+                <group>
+                    <field name="project_id"/>
+                    <field name="employee_ids" widget="many2many_tags"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </group>
+                <footer>
+                    <button name="action_filter_tasks" type="object" string="Apply Filters" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="action_task_filter_wizard"
+                name="Filter Tasks"
+                res_model="task.filter.wizard"
+                view_mode="form"
+                target="new"/>
+
+    <menuitem id="menu_task_filter_wizard" name="Filter Tasks"
+          parent="project_manager_menu" action="action_task_filter_wizard"/>
+
 </odoo>
